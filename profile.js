@@ -17,7 +17,6 @@ let get = (username) => {
             let body = '';
 
             response.on('data', (data) => {
-                  // maka hasilnya akan menjadi buffer. Buffer adalah bitecode string.
                   body += data;
             });
 
@@ -25,10 +24,10 @@ let get = (username) => {
                   let profile = JSON.parse(body);
 
                   if (response.statusCode === 200) {
-                        console.log(`${profile.name} owns ${profile.public_repos} repos and has ${profile.followers} followers`);
+                        console.log(`--- ${profile.name} owns ${profile.public_repos} repos and has ${profile.followers} followers ---`);
 
                   } else {
-                        console.log(`Profile with username '${username}' not found`);
+                        console.log(`--- Profile with username '${username}' not found ---`);
                   }
             });
       });
